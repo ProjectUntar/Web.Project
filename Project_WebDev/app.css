@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@300&display=swap');
+
+.NavigationBar{
+ background-color: rgb(70, 219, 245);
+ overflow: hidden;
+}
+
+.NavigationBar a {
+    float: left;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Alumni Sans', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
