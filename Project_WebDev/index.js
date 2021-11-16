@@ -15,7 +15,7 @@ app.use(session({
 }));
 
 app.use(layouts);
-app.set('layout','layouts/main.ejs');
+app.set('layout','pages/index.ejs');
 
 app.set("layout extractStyles",true)
 
