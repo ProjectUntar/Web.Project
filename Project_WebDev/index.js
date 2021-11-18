@@ -14,17 +14,11 @@ app.use(session({
     cookie: {}
 }));
 
-app.use(layouts);
-app.set('layout','pages/index.ejs');
-
-app.set("layout extractStyles",true)
-
-app.set("layout extractScripts",true)
 
 const index= require('./routes/index');
 
 
-app.get('/',index)
+app.use('/',index)
 
 app.listen('3000',()=>{
     console.log('Server sudah bejalan di port 3000')
