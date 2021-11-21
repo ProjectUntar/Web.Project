@@ -23,6 +23,8 @@ mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("mongoDB Terkoneksi..."))
   .catch((err) => console.log(err));
+  
+  app.use(express.static("public"))
 
 // ejs
 app.use(expressLayouts);
@@ -39,7 +41,7 @@ app.use(
     saveUninitialized: true,
   })
 );
-app.use(express.static("public"))
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -52,12 +54,14 @@ app.use((req, res, next) => {
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
+  res.locals.isLoggedIn = req.session.isLoggedIn;
   next();
 });
 
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
+app.use("/halaman", require("./routes/wish"));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 2000;
 
 app.listen(port, console.log(`sever started at port ${port}`));
