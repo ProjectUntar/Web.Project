@@ -13,6 +13,10 @@ const forumSchema = mongoose.Schema({
         type: String,
         require: true
     },
+    des_pjg: {
+        type: String,
+        require: true
+    },
     section: {
         type: String,
         require: true
