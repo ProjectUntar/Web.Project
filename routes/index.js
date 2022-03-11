@@ -29,6 +29,9 @@ router.get('/lodging',async(req,res)=>{
 router.get("/login", (req, res) => res.render("login")
 );
 
+router.get("/post", (req, res) => res.render("post")
+);
+
 router.get("/register", (req, res) => res.render("register")
 );
 

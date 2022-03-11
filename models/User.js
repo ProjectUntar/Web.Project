@@ -17,6 +17,10 @@ const User = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  access: {
+    type: Boolean,
+    required: true,
+  }
 });
 
 module.exports = mongoose.model('User', User);

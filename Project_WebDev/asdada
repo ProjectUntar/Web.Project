@@ -1,0 +1,11 @@
+router.get("/halaman/:id", (req,res)=>{
+  const halamanId = req.params.id;
+  const wish = new Wish(req.session.wish ? req.session.wish : {});
+  Forum.findById(halamanId, function(err, hal) {
+    wish.add(hal, hal.id);
+    var data = hal;
+    req.session.wish = wish;
+    console.log(data);
+    res.render('forum',{Hal: data});
+  });
+}); 

@@ -1,0 +1,48 @@
+<form class="container-xl" action="/posting/post" method="POST">
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Section</label>
+        <div  class="col-sm-10">
+            <select  class="form-select" for="section" id="section" name="section">
+                <option value="cuisine">Cuisine</option>
+                <option value="destination">Destination</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="lodging">Lodging</option>
+            </select>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Title</label>
+        <div class="col-sm-10">
+            <div class="mb-3">
+                <input class="form-control" for="nama" id="nama" name="nama" type="text">
+            </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Gambar</label>
+        <div class="col-sm-10">
+            <div class="mb-3">
+                <input class="form-control" type="text" for="gambar" id="gambar" name="gambar" placeholder="Masukan dalam bentuk url">
+            </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Deskripsi Singkat</label>
+        <div class="col-sm-10">
+            <div class="mb-3">
+                <textarea class="form-control" for="des_pdk" id="des_pdk" name="des_pdk" rows="3"></textarea>
+            </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Penjelasan lengkap</label>
+        <div class="col-sm-10">
+            <div class="mb-3">
+                <textarea class="form-control" for="des_pjg" id="des_pjg" name="des_pjg" rows="3"></textarea>
+            </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">
+        Submit
+      </button>
+</form>

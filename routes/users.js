@@ -8,6 +8,7 @@ const passport = require("passport");
 
 //user model
 const User = require("../models/User");
+const { is } = require("express/lib/request");
 
 router.get("/login", (req, res) => res.render("login"));
 
@@ -56,6 +57,7 @@ router.post("/register", (req, res) => {
           name,
           email,
           password,
+          access: false,
         });
         //hash password
         bcrypt.genSalt(10, (err, salt) =>
