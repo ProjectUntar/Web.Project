@@ -1,6 +1,7 @@
+const { resolveInclude } = require('ejs');
 const mongoose = require('mongoose');
 
-const User = mongoose.Schema({
+const user = mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -18,9 +19,11 @@ const User = mongoose.Schema({
     default: Date.now,
   },
   access: {
-    type: Boolean,
+    type: String,
     required: true,
+    default: false,
+    enum:["true","false"]
   }
 });
 
-module.exports = mongoose.model('User', User);
+module.exports = mongoose.model('User', user);

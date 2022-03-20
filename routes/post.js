@@ -5,7 +5,8 @@ const User = require("../models/User")
 
 const { ensureAuthenticated } = require("../config/auth");
 
-router.post('/post', ensureAuthenticated, async (req, res) => {
+
+router.post('/post', ensureAuthenticated , async (req, res) => {
     const nama = req.body.nama;
     const gambar = req.body.gambar;
     const des_pdk = req.body.des_pdk;
@@ -20,6 +21,7 @@ router.post('/post', ensureAuthenticated, async (req, res) => {
         section: section      
     });
      await baru.save()
-     res.render("terimakasih")
+     req.flash("success_msg", "Anda berhasil Mem-Posting");
+     res.render("terimakasih");
 })
 module.exports = router;

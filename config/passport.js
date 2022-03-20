@@ -41,4 +41,5 @@ module.exports = function (passport) {
       done(err, user);
     });
   });
+  console.log("Masuk Passport");
 };

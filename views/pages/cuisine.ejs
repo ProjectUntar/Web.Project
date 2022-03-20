@@ -20,11 +20,15 @@
         </div>   
       </div>
       <%}); %> 
+      <% if (locals.isAdmin) { %>
       <div class="card h-100 btn btn-outline-dark">             
-        <img class="card-img-top" src="/Gambar/Plus logo.png" alt="..." height="200px" width="450px" class="rounded-3"/>
-        <a class="stretched-link" href="/post"></a>
-        </div>            
-      </div> 
-    </div>
+        <img class="card-img-top" src="/Gambar/plus-icon-13074.png" alt="..." height="250px" width="250px" class="rounded-3"/>
+        <h2 class="fw-bolder pt-4"> + Post</h2>
+        <a class="stretched-link" href="/post/"></a>
+      </div>
+      <% } else { %>
+      <% } %>            
+    </div> 
   </div>
+</div>
 </section>

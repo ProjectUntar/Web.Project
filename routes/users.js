@@ -6,11 +6,15 @@ const bcrypt = require("bcryptjs");
 
 const passport = require("passport");
 
+const passport_adm = require("passport");
+
 //user model
 const User = require("../models/User");
 const { is } = require("express/lib/request");
 
 router.get("/login", (req, res) => res.render("login"));
+
+router.get("/admlogin", (req, res) => res.render("admlogin"));
 
 router.get("/register", (req, res) => res.render("register"));
 
@@ -86,19 +90,27 @@ router.post("/register", (req, res) => {
 });
 
 //login handle
-router.post("/login", (req, res, next) => {
+router.post("/login", async(req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/users/login",
     failureFlash: true,
-  })(req, res, next);
-  req.session.isLoggedIn = true;
+  }) (req, res, next);
+  const email = req.body.email;
+  console.log(email);
+  if (email == "admin@admin") {
+    req.session.isAdmin = true;
+  }
+  else{
+    req.session.isLoggedIn = true
+  }
 });
 
 //logout handle
 router.get("/logout", (req, res) => {
   req.logout();
   req.session.isLoggedIn = false;
+  req.session.isAdmin = false;
   req.flash("success_msg", "Anda berhasil Log out");
   res.redirect("/users/login");
 });
