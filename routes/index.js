@@ -29,10 +29,11 @@ router.get('/lodging',async(req,res)=>{
 });
 router.get("/login", (req, res) => res.render("login")
 );
-router.get("/admlogin", (req, res) => res.render("admlogin")
+
+router.get("/post", (req, res) => res.render('post')
 );
 
-router.get("/post", (req, res) => res.render('post',)
+router.get("/delete",(req, res) =>res.render('delete')
 );
 
 router.get("/register", (req, res) => res.render("register")
@@ -47,7 +48,14 @@ router.get("/halaman/:id/:nama", async (req,res)=>{
       Hal: data,
       Com: test
     });
+});
+
+router.get("/edit/:id", async (req,res)=>{
+  const halamanId = req.params.id;
+  var data = await Forum.where("_id", halamanId) 
+    res.render('edit',{
+      Hal: data,
+    });
   });
-  
  
 module.exports = router;

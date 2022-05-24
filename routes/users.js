@@ -6,8 +6,6 @@ const bcrypt = require("bcryptjs");
 
 const passport = require("passport");
 
-const passport_adm = require("passport");
-
 //user model
 const User = require("../models/User");
 const { is } = require("express/lib/request");
@@ -97,7 +95,6 @@ router.post("/login", async(req, res, next) => {
     failureFlash: true,
   }) (req, res, next);
   const email = req.body.email;
-  console.log(email);
   if (email == "admin@admin") {
     req.session.isAdmin = true;
   }
